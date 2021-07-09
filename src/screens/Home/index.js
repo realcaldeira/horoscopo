@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import { useNavigation, Route } from '@react-navigation/native';
 
 import { Container, Buscar, BuscarText, Dados } from './styles';
@@ -13,7 +14,7 @@ export function Home() {
   const [horoscopoFinal, setHoroscopoFinal] = useState({});
 
   async function BuscaHoroscopo() {
-    const response = await api.get('test?dt=2021-07-08');
+    const response = await api.get('test?dt=2021-07-09');
 
     setHoroscopo(response);
 
@@ -29,8 +30,8 @@ export function Home() {
   }
 
   function handleChange() {
-    navigation.navigate('Description', { dados });
-    console.log('teste');
+    /* navigation.navigate('Description');*/
+    Alert.alert('TESTE');
   }
 
   return (
@@ -39,7 +40,7 @@ export function Home() {
         data={horoscopoFinal}
         keyExtractor={(item) => item.sign}
         renderItem={({ item }) => (
-          <Card data={item.sign} onPress={() => handleChange(item)} />
+          <Card data={item.sign} onPress={handleChange} />
         )}
       />
 

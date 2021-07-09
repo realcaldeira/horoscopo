@@ -8,7 +8,9 @@ export const Container = styled.View`
   margin-top: 15px;
 `;
 
-export const Dados = styled.FlatList``;
+export const Dados = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})``;
 
 export const Buscar = styled.TouchableOpacity``;
 
