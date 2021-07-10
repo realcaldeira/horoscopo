@@ -6,8 +6,6 @@ export const Container = styled.View`
   align-items: center;
 
   background-color: #691b77;
-
-  margin-top: 15px;
 `;
 
 export const CardContainer = styled.View`
@@ -30,4 +28,21 @@ export const CardText = styled.Text`
   font-size: 22px;
   padding: 0 6px;
   text-align: center;
+`;
+
+export const ButtonPrevious = styled.TouchableOpacity`
+  height: 7%;
+
+  margin-top: 4%;
+  background-color: gray;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 3%;
+
+  border-radius: 10px;
+`;
+export const Previous = styled.Text`
+  color: #fff;
 `;

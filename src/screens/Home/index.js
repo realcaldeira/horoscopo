@@ -12,20 +12,16 @@ export function Home() {
   const navigation = useNavigation();
 
   const [horoscopo, setHoroscopo] = useState({});
-  const [horoscopoFinal, setHoroscopoFinal] = useState({});
 
   async function BuscaHoroscopo() {
     var formattedDate = format(new Date(), 'yyyy-MM-dd');
 
-    console.log(formattedDate);
     const response = await api.get(`test?dt=${formattedDate}`);
 
-    setHoroscopo(response);
-
-    const result = horoscopo.data.result[0].horoscopes;
+    const result = response.data.result[0].horoscopes;
     const resultado = result.map((item) => item);
-    setHoroscopoFinal(resultado);
-    console.log(response);
+
+    setHoroscopo(resultado);
   }
 
   function handleChange(data) {
@@ -39,7 +35,7 @@ export function Home() {
   return (
     <Container>
       <Dados
-        data={horoscopoFinal}
+        data={horoscopo}
         keyExtractor={(item) => item.sign}
         renderItem={({ item }) => (
           <Card data={item.sign} onPress={() => handleChange(item)} />

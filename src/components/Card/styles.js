@@ -13,7 +13,8 @@ export const CardContainer = styled.View`
 
   justify-content: center;
   align-items: center;
-  padding-left: 30%;
+
+  border-radius: 25px;
 `;
 
 export const CardText = styled.Text`
@@ -21,5 +22,5 @@ export const CardText = styled.Text`
   height: 30%;
   color: white;
 
-  font-size: 34px;
+  font-size: 28px;
 `;
