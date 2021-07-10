@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Alert } from 'react-native';
-import { useNavigation, Route } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-import { Container, Buscar, BuscarText, Dados } from './styles';
+import { format } from 'date-fns';
+
+import { Container, Dados } from './styles';
 import { api } from '../../services/api';
 
 import { Card } from '../../components/Card';
@@ -14,24 +15,26 @@ export function Home() {
   const [horoscopoFinal, setHoroscopoFinal] = useState({});
 
   async function BuscaHoroscopo() {
-    const response = await api.get('test?dt=2021-07-09');
+    var formattedDate = format(new Date(), 'yyyy-MM-dd');
+
+    console.log(formattedDate);
+    const response = await api.get(`test?dt=${formattedDate}`);
 
     setHoroscopo(response);
 
-    console.log('Funcionou');
-  }
-
-  function Array() {
-    console.log('**************');
     const result = horoscopo.data.result[0].horoscopes;
     const resultado = result.map((item) => item);
     setHoroscopoFinal(resultado);
-    console.log(resultado);
+    console.log(response);
   }
 
   function handleChange(data) {
     navigation.navigate('Description', { data });
   }
+
+  useEffect(() => {
+    BuscaHoroscopo();
+  }, []);
 
   return (
     <Container>
@@ -42,13 +45,6 @@ export function Home() {
           <Card data={item.sign} onPress={() => handleChange(item)} />
         )}
       />
-
-      <Buscar onPress={BuscaHoroscopo}>
-        <BuscarText>Buscar</BuscarText>
-      </Buscar>
-      <Buscar onPress={Array}>
-        <BuscarText>Buscar Array</BuscarText>
-      </Buscar>
     </Container>
   );
 }

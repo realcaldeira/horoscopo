@@ -12,6 +12,4 @@ export const Dados = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })``;
 
-export const Buscar = styled.TouchableOpacity``;
-
 export const BuscarText = styled.Text``;
