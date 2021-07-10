@@ -1,4 +1,4 @@
-﻿<h1><strong>RentX</strong></h1>
+﻿<h1><strong>Horoscopo</strong></h1>
 
 <img src="./assets/home.jpg" width="290">
 <img src="./assets/details.jpg" width="290">
