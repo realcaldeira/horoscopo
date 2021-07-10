@@ -6,9 +6,11 @@ import {
   CardTitle,
   ButtonPrevious,
   Previous,
+  ImagemHoroscopo,
 } from './styles';
 
 import { useNavigation } from '@react-navigation/native';
+import Horoscopo from '../../assets/horoscopo.png';
 
 export function Description({ route }) {
   const { data } = route.params;
@@ -21,6 +23,7 @@ export function Description({ route }) {
   return (
     <Container>
       <CardContainer>
+        <ImagemHoroscopo source={Horoscopo} />
         <CardTitle>{data.sign}</CardTitle>
         <CardText>{data.description}</CardText>
       </CardContainer>

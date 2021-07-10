@@ -13,7 +13,7 @@ export function Home() {
 
   const [horoscopo, setHoroscopo] = useState({});
 
-  async function BuscaHoroscopo() {
+  async function handleApi() {
     var formattedDate = format(new Date(), 'yyyy-MM-dd');
 
     const response = await api.get(`test?dt=${formattedDate}`);
@@ -24,12 +24,12 @@ export function Home() {
     setHoroscopo(resultado);
   }
 
-  function handleChange(data) {
+  function handleDescription(data) {
     navigation.navigate('Description', { data });
   }
 
   useEffect(() => {
-    BuscaHoroscopo();
+    handleApi();
   }, []);
 
   return (
@@ -38,7 +38,7 @@ export function Home() {
         data={horoscopo}
         keyExtractor={(item) => item.sign}
         renderItem={({ item }) => (
-          <Card data={item.sign} onPress={() => handleChange(item)} />
+          <Card data={item.sign} onPress={() => handleDescription(item)} />
         )}
       />
     </Container>

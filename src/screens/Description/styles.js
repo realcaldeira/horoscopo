@@ -16,6 +16,15 @@ export const CardContainer = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+
+  margin-bottom: 10px;
+`;
+
+export const ImagemHoroscopo = styled.Image`
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 25px;
 `;
 
 export const CardTitle = styled.Text`
