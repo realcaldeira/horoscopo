@@ -29,9 +29,8 @@ export function Home() {
     console.log(resultado);
   }
 
-  function handleChange() {
-    /* navigation.navigate('Description');*/
-    Alert.alert('TESTE');
+  function handleChange(data) {
+    navigation.navigate('Description', { data });
   }
 
   return (
@@ -40,7 +39,7 @@ export function Home() {
         data={horoscopoFinal}
         keyExtractor={(item) => item.sign}
         renderItem={({ item }) => (
-          <Card data={item.sign} onPress={handleChange} />
+          <Card data={item.sign} onPress={() => handleChange(item)} />
         )}
       />
 

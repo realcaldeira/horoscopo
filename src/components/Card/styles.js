@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   width: 100%;
   align-items: center;
   margin: 5px 0;
 `;
 
-export const CardContainer = styled.TouchableOpacity`
+export const CardContainer = styled.View`
   width: 326px;
   height: 122px;
   background-color: #691b77;

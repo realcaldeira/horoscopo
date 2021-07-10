@@ -1,15 +1,12 @@
 import React from 'react';
 import { Container, CardContainer, CardText } from './styles';
-import { useRoute } from '@react-navigation/native';
 
-export function Description({ data, ...rest }) {
-  const route = useRoute();
-  const { dados } = route.params;
-
+export function Description({ route }) {
+  const { data } = route.params;
   return (
-    <Container {...rest}>
+    <Container>
       <CardContainer>
-        <CardText>Teste</CardText>
+        <CardText>{data.description}</CardText>
       </CardContainer>
     </Container>
   );
